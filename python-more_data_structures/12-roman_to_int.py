@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if len(roman_string) == 0 or type(roman_string) is not str:
+    if roman_string is None or type(roman_string) is not str:
         return 0
+
     roman_values = {
         'M': 1000,
         'D': 500,
