@@ -13,6 +13,9 @@ def roman_to_int(roman_string):
     }
     roman_numeral = 0
     i = 0
+    for char in roman_string:
+        if char not in roman_values:
+            return None
     while i < len(roman_string):
         current_value = roman_values[roman_string[i]]
         if i + 1 < len(roman_string):
