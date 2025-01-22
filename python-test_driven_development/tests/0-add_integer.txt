@@ -28,14 +28,26 @@ The example module supplies one function, add_integer.
 >>> add_integer(12222220000, 1234)
 12222221234
 
+# Testing a wrong Type
+>>> add_integer("School", -1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
 # Testing b wrong Type
 >>> add_integer(-1, "School")
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
 
-# Testing a wrong Type
->>> add_integer("School", -1)
+# Testing None argument
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Testing both wrong type argument
+>>> add_integer("Hello", "World")
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
