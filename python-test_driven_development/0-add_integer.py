@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-def add_integer(a, b=98):
-    """
+"""
     This function add two numbers.
     Args:
         a (float or int): first number
@@ -16,7 +15,10 @@ def add_integer(a, b=98):
     10
     >>> add_integer(1.50, 2.25)
     3
-    """
+"""
+
+
+def add_integer(a, b=98):
 
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")

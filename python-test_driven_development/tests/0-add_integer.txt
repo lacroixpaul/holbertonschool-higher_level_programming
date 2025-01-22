@@ -16,6 +16,10 @@ The example module supplies one function, add_integer.
 >>> add_integer(1.50, 2.25)
 3
 
+# Testing with only one number (b is by default 98)
+>>> add_integer(1.50)
+99
+
 # Testing negative number
 >>> add_integer(-1, 2)
 1
