@@ -1,0 +1,37 @@
+"""
+This is the test module for add_integer.
+
+The example module supplies one function, add_integer. 
+
+"""
+
+# Importing the module
+>>> add_integer = __import__("0-add_integer").add_integer
+
+# Testing positive number
+>>> add_integer(1, 2)
+3
+
+# Testing floating number
+>>> add_integer(1.50, 2.25)
+3
+
+# Testing negative number
+>>> add_integer(-1, 2)
+1
+
+# Testing large number
+>>> add_integer(12222220000, 1234)
+12222221234
+
+# Testing b wrong Type
+>>> add_integer(-1, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+# Testing a wrong Type
+>>> add_integer("School", -1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
