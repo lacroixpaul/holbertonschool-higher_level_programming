@@ -22,12 +22,8 @@ Examples :
 3
     """
 
-    if not isinstance(a, (int, float)):
+    if not isinstance(a, int) or a != a or a == float('inf') or a == float('-inf'):
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if not isinstance(b, int) or b != b or b == float('inf') or b == float('-inf'):
         raise TypeError("b must be an integer")
-    if a is float:
-        int(a)
-    if b is float:
-        int(b)
     return int(a) + int(b)
