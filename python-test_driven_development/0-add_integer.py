@@ -22,12 +22,14 @@ Examples :
 3
     """
 
-    if not isinstance(a, int) or a != a or a == float('inf') or a == float('-inf'):
+    if not isinstance(a, (int, float)) or a is None:
         raise TypeError("a must be an integer")
-    if not isinstance(b, int) or b != b or b == float('inf') or b == float('-inf'):
+    if isinstance(a, float) and (a != a or a in (float('inf'), float('-inf'))):
+        raise TypeError("a must be a valid number")
+
+    if not isinstance(b, (int, float)) or b is None:
         raise TypeError("b must be an integer")
-    if a is float:
-        int(a)
-    if b is float:
-        int(b)
+    if isinstance(b, float) and (b != b or b in (float('inf'), float('-inf'))):
+        raise TypeError("b must be a valid number")
+
     return int(a) + int(b)
