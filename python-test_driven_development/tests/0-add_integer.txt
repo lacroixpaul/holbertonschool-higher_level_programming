@@ -12,6 +12,10 @@ The example module supplies one function, add_integer.
 >>> add_integer(1, 2)
 3
 
+# Testing adding int with float number
+>>> add_integer(1.1, 2)
+3
+
 # Testing floating number
 >>> add_integer(1.50, 2.25)
 3
