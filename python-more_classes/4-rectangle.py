@@ -78,4 +78,5 @@ class Rectangle:
 
     def __eval__(self):
         """ Create a new object with repr """
-        return eval(repr(self))
+        my_rectangle = []
+        return eval(repr(my_rectangle))
