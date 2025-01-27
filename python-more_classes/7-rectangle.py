@@ -63,13 +63,13 @@ class Rectangle:
             return
         else:
             for i in range(self.__height):
-                print(Rectangle.print_symbol * self.__width)
+                print(self.print_symbol * self.__width)
 
     def __str__(self):
         """ Returns a string to print the rectangle with # """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([Rectangle.print_symbol * self.__width] * self.__height)
+        return "\n".join([self.print_symbol * self.__width] * self.__height)
 
     def __repr__(self):
         """ Return a string which describe the object """
