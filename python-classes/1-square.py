@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 0-square.py
+Module 1-square.py
 Provides an empty class Square that defines a square
 """
 
