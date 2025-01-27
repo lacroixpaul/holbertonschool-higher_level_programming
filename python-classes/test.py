@@ -1,19 +1,13 @@
-Square = __import__("4-square").Square
+Square = __import__("6-square").Square
+
+#!/usr/bin/python3
 
 def test_square():
-    try:
-        # Test d'une instance valide
-        square1 = Square(5)
-        print(f"Carré de taille {square1._Square__size} créé avec succès.")
-        print(f"Aire du carré : {square1.area()}")
-        print("Affichage du carré :")
-        square1.my_print()
-    except Exception as e:
-        print(f"Erreur : {e}")
-    try:
-        # Test avec une taille négative (doit lever une exception ValueError)
-        square3 = Square(-3)
-    except Exception as e:
-        print(f"Erreur : {e}")
-        
-test_square()
+    # Test 1: Création d'un carré avec une taille valide et position (0, 0)
+    print("Test 1: Création d'un carré de taille 4, position (0, 0)")
+    square1 = Square(4, (0, 0))
+    square1.my_print()
+    print(f"Area: {square1.area()}")  # Devrait afficher 16
+
+if __name__ == "__main__":
+    test_square()
