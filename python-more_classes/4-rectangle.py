@@ -78,5 +78,4 @@ class Rectangle:
 
     def eval(self):
         """ Return a new rectangle when used with repr """
-        new_rectangle = eval(repr(self))
-        return new_rectangle
+        return eval(repr(self))
