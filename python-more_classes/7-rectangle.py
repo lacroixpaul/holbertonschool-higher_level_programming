@@ -61,8 +61,11 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         if isinstance(self.print_symbol, list):
-            self.print_symbol = "[" + ", ".join(f'"{element}"' for element in self.print_symbol) + "]"
-        return "\n".join([self.print_symbol * self.width] * self.height)
+            elements = [f'"{element}"' for element in self.print_symbol]
+            print_symbol_str = "[" + ", ".join(elements) + "]"
+        else:
+            print_symbol_str = str(self.print_symbol)
+        return "\n".join([print_symbol_str * self.width] * self.height)
 
     def __repr__(self):
         """ Return a string which describe the object """
