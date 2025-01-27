@@ -1,4 +1,4 @@
-Square = __import__("3-square").Square
+Square = __import__("4-square").Square
 
 def test_square():
     try:
@@ -6,6 +6,8 @@ def test_square():
         square1 = Square(5)
         print(f"Carré de taille {square1._Square__size} créé avec succès.")
         print(f"Aire du carré : {square1.area()}")
+        print("Affichage du carré :")
+        square1.my_print()
     except Exception as e:
         print(f"Erreur : {e}")
     try:
