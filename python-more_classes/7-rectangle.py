@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 6-rectangle
+Module 7-rectangle
 Provides an empty class Rectangle that defines a rectangle
 """
 
@@ -10,7 +10,7 @@ class Rectangle:
         Provides an empty class Rectangle that defines a rectangle
     """
     number_of_instances = 0
-    print_symbol = '#'
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """ Initialize the rectangle """
