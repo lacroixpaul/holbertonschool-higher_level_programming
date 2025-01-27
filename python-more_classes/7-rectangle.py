@@ -60,7 +60,11 @@ class Rectangle:
         """ Returns a string to print the rectangle with # """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([self.print_symbol * self.width] * self.height)
+        if isinstance(self.print_symbol, list):
+            print_symbol_str = "".join(map(str, self.print_symbol))
+        else:
+            print_symbol_str = str(self.print_symbol)
+        return "\n".join([print_symbol_str * self.width] * self.height)
 
     def __repr__(self):
         """ Return a string which describe the object """
