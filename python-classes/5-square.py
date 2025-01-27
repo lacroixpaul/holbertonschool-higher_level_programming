@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 4-square.py
+Module 5-square.py
 Provides an empty class Square that defines a square
 """
 
@@ -37,3 +37,11 @@ class Square:
     def area(self):
         """ Return the area of the square """
         return self.__size ** 2
+
+    def my_print(self):
+        """ Print the square """
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(self.__size):
+                print('#' * self.__size)
