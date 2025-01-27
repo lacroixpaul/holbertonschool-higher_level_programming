@@ -1,10 +1,11 @@
-Square = __import__("2-square").Square
+Square = __import__("3-square").Square
 
 def test_square():
     try:
         # Test d'une instance valide
         square1 = Square(5)
         print(f"Carré de taille {square1._Square__size} créé avec succès.")
+        print(f"Aire du carré : {square1.area()}")
     except Exception as e:
         print(f"Erreur : {e}")
     try:
