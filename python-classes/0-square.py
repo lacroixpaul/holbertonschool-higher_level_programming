@@ -5,7 +5,7 @@ Provides an empty class Square that defines a square
 """
 
 
-class square:
+class Square:
     """
     Provides an empty class Square that defines a square
     """
