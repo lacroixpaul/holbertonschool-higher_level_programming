@@ -61,8 +61,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         if isinstance(self.print_symbol, list):
-            elements = [f'"{element}"' for element in self.print_symbol]
-            print_symbol_str = "[" + ", ".join(elements) + "]"
+            elements = [f"'{element}'" for element in self.print_symbol]
+            print_symbol_str = '[' + ', '.join(elements) + ']'
         else:
             print_symbol_str = str(self.print_symbol)
         return "\n".join([print_symbol_str * self.width] * self.height)
