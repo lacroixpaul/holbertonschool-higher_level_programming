@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 3-rectangle
+Module 4-rectangle
 Provides an empty class Rectangle that defines a rectangle
 """
 
