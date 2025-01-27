@@ -64,13 +64,10 @@ class Rectangle:
                 print("#" * self.__width)
 
     def __str__(self):
-        """ print the rectangle """
-        if self.__height == 0 or self.__width == 0:
-            print()
-            return
-        else:
-            for i in range(self.__height):
-                print("#" * self.__width)
+        """ Returns a string to print the rectangle with # """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        return "\n".join(["#" * self.__width] * self.__height)
 
     def __repr__(self):
         """ Return a string which describe the object """
