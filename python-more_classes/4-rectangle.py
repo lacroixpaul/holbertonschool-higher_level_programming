@@ -75,7 +75,3 @@ class Rectangle:
     def __repr__(self):
         """ Return a string which describe the object """
         return f"Rectangle({self.__width}, {self.__height})"
-
-    def eval(self):
-        """ Return a new rectangle when used with repr """
-        return eval(repr(self))
