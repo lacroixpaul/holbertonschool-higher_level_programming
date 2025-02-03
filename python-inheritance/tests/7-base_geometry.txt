@@ -16,10 +16,27 @@ This is the test for 7-base_geometry module.
     >>> len(c) > 1
     True
 
+# Testing for method docstring (area):
+>>> area_doc = BaseGeometry.area.__doc__
+>>> len(area_doc) > 1
+True
+
+# Testing for method docstring (integer_validator):
+>>> validator_doc = BaseGeometry.integer_validator.__doc__
+>>> len(validator_doc) > 1
+True
+
+==========
+
 # Testing valid case :
 >>> base_geometry.integer_validator("John", 12)
 
-# Testing wrong type first argument :
+# Testing valid case :
+>>> base_geometry.integer_validator("John", 9999999999999999999999999999999999999999999999999999999999999999)
+
+==========
+
+# Testing wrong second argument :
 >>> base_geometry.integer_validator("John", "not_a_int")
 Traceback (most recent call last):
     ...
@@ -69,6 +86,12 @@ TypeError: John must be an integer
 
 # Testing string value for second argument:
 >>> base_geometry.integer_validator("John", "12")
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing positive float value for second argument:
+>>> base_geometry.integer_validator("John", 12.01)
 Traceback (most recent call last):
     ...
 TypeError: John must be an integer
