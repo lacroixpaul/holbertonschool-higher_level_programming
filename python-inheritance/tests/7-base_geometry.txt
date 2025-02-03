@@ -30,3 +30,22 @@ TypeError: John must be an integer
 Traceback (most recent call last):
     ...
 ValueError: John must be greater than 0
+
+
+# Testing NaN value for second argument:
+>>> base_geometry.integer_validator("John", float('nan'))
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing inf value for second argument:
+>>> base_geometry.integer_validator("John", 1e400)
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing none value:
+>>> base_geometry.integer_validator("John", None)
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
