@@ -31,6 +31,11 @@ Traceback (most recent call last):
     ...
 ValueError: John must be greater than 0
 
+# Testing 0 value second argument :
+>>> base_geometry.integer_validator("John", 0)
+Traceback (most recent call last):
+    ...
+ValueError: John must be greater than 0
 
 # Testing NaN value for second argument:
 >>> base_geometry.integer_validator("John", float('nan'))
@@ -46,6 +51,24 @@ TypeError: John must be an integer
 
 # Testing none value:
 >>> base_geometry.integer_validator("John", None)
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing list value for second argument:
+>>> base_geometry.integer_validator("John", [12])
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing tuple value for second argument:
+>>> base_geometry.integer_validator("John", (12,))
+Traceback (most recent call last):
+    ...
+TypeError: John must be an integer
+
+# Testing string value for second argument:
+>>> base_geometry.integer_validator("John", "12")
 Traceback (most recent call last):
     ...
 TypeError: John must be an integer
