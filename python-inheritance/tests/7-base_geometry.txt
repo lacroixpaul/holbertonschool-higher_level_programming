@@ -15,7 +15,7 @@ This is the test for 7-base_geometry module.
     True
 
 # Testing for class docstring:
-    >>> c = __import__("7-base_geometry").MyList.__doc__
+    >>> c = __import__("7-base_geometry").__doc__
     >>> len(c) > 1
     True
 
