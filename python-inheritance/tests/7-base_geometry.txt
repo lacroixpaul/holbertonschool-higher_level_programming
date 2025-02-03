@@ -1,0 +1,40 @@
+"""
+This is the test for 7-base_geometry module.
+"""
+
+# Importing the class :
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> base_geometry = BaseGeometry()
+
+# Importing the function from the module:
+    >>> integer_validator = __import__("7-base_geometry").integer_validator
+
+# Testing for module docstring:
+    >>> m = __import__("7-base_geometry").__doc__
+    >>> len(m) > 1
+    True
+
+# Testing for class docstring:
+    >>> c = __import__("7-base_geometry").MyList.__doc__
+    >>> len(c) > 1
+    True
+
+# Testing for method docstring:
+	>>> mod = __import__("7-base_geometry").base_geometry.integer_validator.__doc__
+	>>> len(mod) > 1
+	True
+
+# Testing valid case :
+>>> base_geometry.integer_validator("John", 12)
+
+# Testing wrong type first argument :
+>>> base_geometry.integer_validator(12, 12)
+Traceback (most recent call last):
+    ...
+TypeError: <name> must be an integer
+
+# Testing wrong value second argument :
+>>> base_geometry.integer_validator("John", -12)
+Traceback (most recent call last):
+    ...
+ValueError: integer must be greater than 0
