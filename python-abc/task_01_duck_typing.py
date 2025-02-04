@@ -38,13 +38,13 @@ class Circle(Shape):
         """
         Initialize the Circle class
         """
-        self.__radius = radius
+        self.__radius = abs(radius)
 
     def area(self):
         """
         area method
         """
-        return math.pi * self.__radius ** 2
+        return math.pi * (self.__radius ** 2)
 
     def perimeter(self):
         """
