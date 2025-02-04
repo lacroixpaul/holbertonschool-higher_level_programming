@@ -39,17 +39,17 @@ class Circle(Shape):
         """
         self.radius = radius
 
-    def area(radius):
+    def area(self):
         """
         area method
         """
-        return 3.14 * radius ** 2
+        return 3.14 * self.radius ** 2
 
-    def perimeter(radius):
+    def perimeter(self):
         """
         perimeter method
         """
-        return 3.14 * radius * 2
+        return 3.14 * self.radius * 2
 
 
 class Rectangle(Shape):
@@ -64,14 +64,30 @@ class Rectangle(Shape):
         self.width = width
         self.height = height
 
-    def area(width, height):
+    def area(self):
         """
         area method
         """
-        return width * height
+        return self.width * self.height
 
-    def perimeter(width, height):
+    def perimeter(self):
         """
         perimeter method
         """
-        return 2 * (height + width)
+        return 2 * (self.height + self.width)
+
+
+def shape_info(obj):
+    """
+    shape_info methode
+    """
+    obj_area = obj.area()
+    obj_perimeter = obj.perimeter()
+    return f"Area: {obj_area}, Perimeter: {obj_perimeter}"
+
+
+circle_1 = Circle(5)
+rectangle_1 = Rectangle(5, 10)
+
+shape_info(circle_1)
+shape_info(rectangle_1)
