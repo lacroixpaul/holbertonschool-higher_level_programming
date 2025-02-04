@@ -14,12 +14,12 @@ class Animal(ABC):
     """
 
 
-@abstractmethod
-def sound(self):
-    """
-    sound ABC method
-    """
-    pass
+    @abstractmethod
+    def sound(self):
+        """
+        sound ABC method
+        """
+        pass
 
 
 class Dog(Animal):
