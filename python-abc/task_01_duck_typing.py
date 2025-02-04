@@ -83,7 +83,7 @@ def shape_info(obj):
     """
     obj_area = obj.area()
     obj_perimeter = obj.perimeter()
-    return f"Area: {obj_area}, Perimeter: {obj_perimeter}"
+    print(f"Area: {obj_area}, Perimeter: {obj_perimeter}")
 
 
 circle_1 = Circle(5)
