@@ -43,13 +43,13 @@ class Circle(Shape):
         """
         area method
         """
-        return 3.14 * self.radius ** 2
+        return 3.141592653 * self.radius ** 2
 
     def perimeter(self):
         """
         perimeter method
         """
-        return 3.14 * self.radius * 2
+        return 3.141592653 * self.radius * 2
 
 
 class Rectangle(Shape):
@@ -83,7 +83,8 @@ def shape_info(obj):
     """
     obj_area = obj.area()
     obj_perimeter = obj.perimeter()
-    print(f"Area: {obj_area}, Perimeter: {obj_perimeter}")
+    print(f"Area: {obj_area}")
+    print(f"Perimeter: {obj_perimeter}")
 
 
 circle_1 = Circle(5)
