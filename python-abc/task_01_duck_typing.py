@@ -6,6 +6,7 @@ Provides an ABC class Shape
 """
 
 from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
@@ -43,13 +44,13 @@ class Circle(Shape):
         """
         area method
         """
-        return 3.141592653589793 * self.radius ** 2
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         """
         perimeter method
         """
-        return 3.141592653589793 * self.radius * 2
+        return math.pi * self.radius * 2
 
 
 class Rectangle(Shape):
