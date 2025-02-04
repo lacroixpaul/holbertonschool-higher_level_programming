@@ -13,7 +13,6 @@ class Animal(ABC):
     ABC class Animal
     """
 
-
     @abstractmethod
     def sound(self):
         """
@@ -27,12 +26,11 @@ class Dog(Animal):
     Dog class
     """
 
-
-def sound(self):
-    """
-    Sound method
-    """
-    return ("Bark")
+    def sound(self):
+        """
+        Sound method
+        """
+        return ("Bark")
 
 
 class Cat(Animal):
@@ -40,9 +38,8 @@ class Cat(Animal):
     Cat class
     """
 
-
-def sound(self):
-    """
-    Sound method
-    """
-    return ("Meow")
+    def sound(self):
+        """
+        Sound method
+        """
+        return ("Meow")
