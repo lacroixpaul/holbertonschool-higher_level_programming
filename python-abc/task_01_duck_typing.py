@@ -88,8 +88,8 @@ def shape_info(shape):
 
 if __name__ == "__main__":
 
-    Circle = Circle(5)
-    Rectangle = Rectangle(4, 7)
+    circle = Circle(5)
+    rectangle = Rectangle(4, 7)
 
-    shape_info(Circle)
-    shape_info(Rectangle)
+    shape_info(circle)
+    shape_info(rectangle)
