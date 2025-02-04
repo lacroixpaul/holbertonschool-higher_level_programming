@@ -38,19 +38,19 @@ class Circle(Shape):
         """
         Initialize the Circle class
         """
-        self.radius = radius
+        self.__radius = radius
 
     def area(self):
         """
         area method
         """
-        return math.pi * self.radius ** 2
+        return math.pi * self.__radius ** 2
 
     def perimeter(self):
         """
         perimeter method
         """
-        return math.pi * self.radius * 2
+        return math.pi * self.__radius * 2
 
 
 class Rectangle(Shape):
@@ -62,20 +62,20 @@ class Rectangle(Shape):
         """
         Initialize the Rectangle class
         """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     def area(self):
         """
         area method
         """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """
         perimeter method
         """
-        return 2 * (self.height + self.width)
+        return 2 * (self.__height + self.__width)
 
 
 def shape_info(shape):
