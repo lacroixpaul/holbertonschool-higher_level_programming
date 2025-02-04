@@ -88,8 +88,10 @@ def shape_info(obj):
     print(f"Perimeter: {obj_perimeter}")
 
 
-circle_1 = Circle(5)
-rectangle_1 = Rectangle(4, 7)
+if __name__ == "__main__":
 
-shape_info(circle_1)
-shape_info(rectangle_1)
+    circle_1 = Circle(5)
+    rectangle_1 = Rectangle(4, 7)
+
+    shape_info(circle_1)
+    shape_info(rectangle_1)
