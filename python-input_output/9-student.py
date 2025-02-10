@@ -20,4 +20,4 @@ class Student:
         """
         returns the dictionary description with simple data structure
         """
-        return obj.__dict__
+        return self.__dict__
