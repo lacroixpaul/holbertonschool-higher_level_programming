@@ -20,11 +20,10 @@ class Student:
         """
         returns the dictionary description with simple data structure
         """
-        if isinstance(attrs, list):
-            result = {}
-            for attr in attrs:
-                if not isinstance(attr, str) or attr not in self.__dict__:
-                    return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        result = {}
+        for attr in attrs:
+            if isinstance(attr, str) and attr in self.__dict__:
                 result[attr] = self.__dict__[attr]
-            return result
-        return self.__dict__
+        return result
