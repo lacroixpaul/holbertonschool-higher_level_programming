@@ -27,18 +27,15 @@ def deserialize_from_xml(filename):
     """
     return a deserialized Python dictionary
     """
-    try:
-        tree = ET.parse(filename)
-        root = tree.getroot()
-        dictionary = {}
-        for child in root:
-            key = child.tag
-            value = child.text
-            if value.isdigit():
-                value = int(value)
-            elif value.replace(".", "", 1).isdigit() and value.count(".") == 1:
-                value = float(value)
-            dictionary[key] = value
-        return dictionary
-    except Exception as e:
-        return None
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    dictionary = {}
+    for child in root:
+        key = child.tag
+        value = child.text
+        if value.isdigit():
+            value = int(value)
+        elif value.replace(".", "", 1).isdigit() and value.count(".") == 1:
+            value = float(value)
+        dictionary[key] = value
+    return dictionary
