@@ -18,13 +18,28 @@
 
 ### Structure of an HTTP Request
 
-sequenceDiagram
-    participant Client
-    participant Server
+1. **Client Request**
+   - **Method**: GET / POST / PUT
+   - **URI**: /page.html
+   - **Version**: HTTP/1.1
+   - **Headers**:
+     - Host: www.example.com
+     - User-Agent: Mozilla/5.0
+     - Accept: text/html
+   - **Body**: (present for POST/PUT)
 
-    Client->>Server: 📤 HTTP Request\nMethod: GET / POST / PUT\nURI: /page.html\nVersion: HTTP/1.1\nHeaders: Host: www.example.com\nUser-Agent: Mozilla/5.0\nAccept: text/html\nBody (Body): (present for POST/PUT)
-    Server->>Client: 📥 HTTP Response\nVersion: HTTP/1.1\nStatus: 200 OK\nHeaders: Content-Type: text/html\nServer: Apache\nDate: Mon, 17 Feb 2025\nBody (Body): HTML content returned
-    Client->>Client: Displaying the response
+2. **Server Response**
+   - **Version**: HTTP/1.1
+   - **Status**: 200 OK
+   - **Headers**:
+     - Content-Type: text/html
+     - Server: Apache
+     - Date: Mon, 17 Feb 2025
+   - **Body**: HTML content returned
+
+3. **Client Action**
+   - Displaying the response in the browser
+
 
 # HTTP Methods and Status Codes
 
