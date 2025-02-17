@@ -4,7 +4,6 @@ Consuming and processing data from an API using Python
 """
 
 import requests
-import json
 import csv
 
 
@@ -26,20 +25,12 @@ def fetch_and_save_posts():
     """
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
-        posts_data = []
-        posts = response.json()
-        for post in posts:
-            post_info = {
-                "id": post["id"],
-                "title": post["title"],
-                "body": post["body"]
-            }
-            posts_data.append(post_info)
-    with open('posts.csv', mode='w', newline='', encoding='utf-8') as file:
-        fieldnames = ['id', 'title', 'body']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(posts_data)
+        with open('posts.csv', mode='w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=['id', 'title', 'body'],
+                                    extrasaction="ignore")
+            writer.writeheader()
+            posts = response.json()
+            writer.writerows(posts)
 
 
 if __name__ == "__main__":
