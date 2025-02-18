@@ -36,13 +36,6 @@ class mysubclass(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
 
-        elif self.path == "/info":
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(info).encode('utf-8'))
-
         else:
             self.send_response(404)
             self.send_header('Content-Type', 'application/json')
