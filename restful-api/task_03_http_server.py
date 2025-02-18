@@ -16,7 +16,13 @@ class mysubclass(BaseHTTPRequestHandler):
         """
         handle GET requests
         """
-        if self.path == "/data":
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")
+
+        elif self.path == "/data":
             data = {"name": "John", "age": 30, "city": "New York"}
             json.dumps(data)
             self.send_response(200)
@@ -29,6 +35,13 @@ class mysubclass(BaseHTTPRequestHandler):
             self.send_header('Content-Type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"OK")
+
+        elif self.path == "/info":
+            info = {"version": "1.0", "description": "A simple API built with http.server"}
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(info).encode('utf-8'))
 
         else:
             self.send_response(404)
