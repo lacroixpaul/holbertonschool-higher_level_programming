@@ -38,20 +38,12 @@ class mysubclass(BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            error_message = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_message).encode('utf-8'))
-
-
-def run(server_class=HTTPServer, handler_class=mysubclass):
-    """
-    initialize the server
-    """
-    server_address = ('', 8000)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
-    run()
+    server_address = ("", 8000)
+    httpd = HTTPServer(server_address, mysubclass)
+    print("Serving on http://localhost:8000")
+    httpd.serve_forever()
