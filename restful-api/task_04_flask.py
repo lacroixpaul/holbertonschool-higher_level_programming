@@ -19,21 +19,33 @@ users = {
 
 @app.route('/')
 def home():
+    """
+    Landing page
+    """
     return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def data():
+    """
+    return list of user
+    """
     return jsonify(list(users.keys()))
 
 
 @app.route('/status')
 def status():
+    """
+    return status
+    """
     return "OK"
 
 
 @app.route('/users/<username>')
 def user(username):
+    """
+    dynamic route
+    """
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -43,6 +55,9 @@ def user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
+    """
+    add an user
+    """
     data = request.get_json()
     if 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
