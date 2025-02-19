@@ -17,25 +17,29 @@ jwt = JWTManager(app)
 
 
 users = {
-    "user1": {"username": "user1",
-              "password": generate_password_hash("password"), "role": "user"},
-    "admin1": {"username": "admin1",
-               "password": generate_password_hash("password"), "role": "admin"}
+    "user1": {
+        "username": "user1",
+        "password": generate_password_hash("password"),
+        "role": "user"},
+    "admin1": {
+        "username": "admin1",
+        "password": generate_password_hash("password"),
+        "role": "admin"}
 }
 
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(users[username]["password"],
-                                                 password):
-        return username
+    user = users.get(username)
+    if user and check_password_hash(user['password'], password):
+        return user
     return None
 
 
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return jsonify({"message": "Basic Auth: Access Granted"})
+    return "Basic Auth: Access Granted"
 
 
 @app.route('/login', methods=['POST'])
@@ -69,3 +73,7 @@ def admin_only():
     if user_role != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return jsonify({"message": "Admin Access: Granted"}), 200
+
+
+if __name__ == "__main__":
+    app.run()
