@@ -6,13 +6,14 @@ API Security and Authentication Techniques
 from flask import Flask, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_httpauth import HTTPBasicAuth
-from flask_jwt_extended import JWTManager, create_access_token
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import (JWTManager,
+                                create_access_token,
+                                jwt_required, get_jwt_identity)
 
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config["JWT_SECRET_KEY"] = "super-secret-key"
+app.config['SECRET_KEY'] = "super-secret-key"
 jwt = JWTManager(app)
 
 
