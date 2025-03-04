@@ -14,13 +14,10 @@ if __name__ == '__main__':
         database=sys.argv[3]
     )
     cursor = db.cursor()
-    try:
-        cursor.execute("SELECT * FROM states WHERE name \
-                       LIKE 'N%' ORDER BY states.id ASC")
-        for state in cursor.fetchall():
-            print(state)
-    finally:
-        if cursor:
-            cursor.close()
-        if db:
-            db.close()
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%'\
+                    ORDER BY id ASC")
+
+    rows = cursor.fetchall()
+
+    for row in rows:
+        print(row)
