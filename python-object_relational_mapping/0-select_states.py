@@ -8,6 +8,8 @@ import MySQLdb
 if __name__ == '__main__':
 
     db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
         username=argv[1],
         password=argv[2],
         database=argv[3]
@@ -19,6 +21,6 @@ if __name__ == '__main__':
             print(state)
     finally:
         if cursor:
-         cursor.close()
+            cursor.close()
         if db:
             db.close()
