@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 """Module for Selecting states with name starting with 'N'"""
 
-from sys import argv
+import sys
 import MySQLdb
 
 if __name__ == '__main__':
 
     db = MySQLdb.connect(
-        username=argv[1],
-        password=argv[2],
-        database=argv[3]
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        database=sys.argv[3]
     )
     cursor = db.cursor()
     try:
