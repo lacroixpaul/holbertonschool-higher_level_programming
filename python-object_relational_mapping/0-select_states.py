@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Script Python qui se connecte à une base MySQL,
-récupère et affiche les données triées par id.
+lists all states from the database hbtn_0e_0_usa
 """
 import sys
 import MySQLdb
