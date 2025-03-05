@@ -20,7 +20,8 @@ if __name__ == '__main__':
         db=database_name
     )
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE '%{}%' ORDER BY id ASC".format(state_name)
+    query = "SELECT * FROM states WHERE name LIKE '%{}%' \
+    ORDER BY id ASC".format(state_name)
     cursor.execute(query)
 
     rows = cursor.fetchall()
