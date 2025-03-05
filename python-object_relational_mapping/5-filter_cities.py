@@ -32,6 +32,6 @@ if __name__ == '__main__':
     rows = cursor.fetchall()
 
     for row in rows:
-        print(row[1]) 
+        print(row[1])
     cursor.close()
     db.close()
