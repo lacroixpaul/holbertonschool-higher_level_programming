@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     rows = cursor.fetchall()
 
-    for row in rows:
-        print(row[1])
+    cities = [row[0] for row in rows]    
+    print(", ".join(cities))
     cursor.close()
     db.close()
