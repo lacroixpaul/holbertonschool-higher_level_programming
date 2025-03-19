@@ -42,15 +42,16 @@ def products():
     source = request.args.get('source')
     product_id = request.args.get('id')
     
+    if source not in ['json', 'csv']:
+        return render_template('product_display.html', error="Wrong source")
+
     if source == 'json':
         file_path = 'products.json'
-        products_data = read_json(file_path)
+        products_data = read_json(file_path)  
 
     elif source == 'csv':
         file_path = 'products.csv'
         products_data = read_csv(file_path)
-    else:
-        return render_template('product_display.html', error="Wrong source")
 
     if product_id:
         id_products = []
@@ -59,13 +60,11 @@ def products():
                 id_products.append(product)
         
         if not id_products:
-            products_data = []
-            return render_template('product_display.html', products=products_data, error="Product not found")
+            return render_template('product_display.html', products=[], error="Product not found")
         else:
             products_data = id_products
 
-        return render_template('product_display.html', products=products_data)
-
+    return render_template('product_display.html', products=products_data)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
