@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Product display - My Flask App</title>
-	</head>
+<head>
+    <title>Product display - My Flask App</title>
+</head>
 <body>
-    {% if products %}
+    {% if error %}
+        <div style="color: red;">
+            <p>Erreur : {{ error }}</p>
+        </div>
+    {% elif products %}
         <table>
             <thead>
                 <tr>
-					<th>ID</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Category</th>
                     <th>Price</th>
@@ -24,10 +28,11 @@
                 </tr>
                 {% endfor %}
             </tbody>
+        </table>
     {% else %}
         <p>No products found</p>
     {% endif %}
-
+    
     {% include 'footer.html' %}
 </body>
 </html>

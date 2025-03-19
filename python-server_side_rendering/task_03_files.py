@@ -57,7 +57,7 @@ def products():
         products_list = [product for product in products_list if product['id'] == product_id]
         if not products_list:
             return render_template('product_display.html', error="Product not found")
-    
+
     return render_template('product_display.html', products=products_list)
 
 
