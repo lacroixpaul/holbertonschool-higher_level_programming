@@ -37,7 +37,10 @@ def generate_invitations(template_content, attendees):
         invit = template_content
         for key, value in attendee.items():
             placeholder = f"{{{key}}}"
-            invit = invit.replace(placeholder, str(value))
+            if value == "N/A":
+                invit = invit.replace(placeholder, f"{key}: N/A")
+            else:
+                invit = invit.replace(placeholder, str(value))
             output_filename = f"output_{index}.txt"
             with open(output_filename, 'w') as file:
                 file.write(invit)
