@@ -29,42 +29,37 @@ def read_json(file_path):
         return json.load(file)
 
 def read_csv(file_path):
-    with open(file_path, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile, quotechar='"')
-        data = list(reader)
-        if not data:
-            print("Data missing")
-            return []
-        return data
+    products = []
+    with open(file_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            row['id'] = int(row['id'])
+            row['price'] = float(row['price'])
+            products.append(row)
+    return products
 
 @app.route('/products')
 def products():
     source = request.args.get('source')
     product_id = request.args.get('id')
     
-    if source not in ['json', 'csv']:
-        return render_template('product_display.html', error="Wrong source")
-
     if source == 'json':
         file_path = 'products.json'
-        products_data = read_json(file_path)  
-
+        products_list = read_json(file_path)
     elif source == 'csv':
         file_path = 'products.csv'
-        products_data = read_csv(file_path)
-
+        products_list = read_csv(file_path)
+    else:
+        return render_template('product_display.html', error="Wrong source")
+    
     if product_id:
-        id_products = []
-        for product in products_data:
-            if int(product.get('id', 0)) == int(product_id):
-                id_products.append(product)
-        
-        if not id_products:
-            return render_template('product_display.html', products=[], error="Product not found")
-        else:
-            products_data = id_products
+        product_id = int(product_id)
+        products_list = [product for product in products_list if product['id'] == product_id]
+        if not products_list:
+            return render_template('product_display.html', error="Product not found")
+    
+    return render_template('product_display.html', products=products_list)
 
-    return render_template('product_display.html', products=products_data)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
