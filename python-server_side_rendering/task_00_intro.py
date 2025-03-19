@@ -11,9 +11,6 @@ def generate_invitations(template_content, attendees):
     if not exists("template.txt"):
         raise FileNotFoundError("Template file not found")
 
-    with open('template.txt', 'r') as file:
-        template_content = file.read()
-
     if not template_content:
         raise ValueError("Template is empty, no output files generated.")
 
