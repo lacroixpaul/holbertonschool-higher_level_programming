@@ -40,13 +40,12 @@ def read_csv(file_path):
     return products
 
 def read_sqlite():
-    conn = get_db_connection()
+    conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT id, name, category, price FROM Products")
+    cursor.execute('SELECT * FROM Products')
     products = cursor.fetchall()
     conn.close()
     return [dict(product) for product in products]
-
 
 @app.route('/products')
 def products():
